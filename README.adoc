@@ -87,9 +87,9 @@ endif::[]
 //------------------------------------ 
 == {assignment}
 
-{lastName}:: BRUEL
+{lastName}:: LARRIEU
 
-{firstName}:: Jean-Michel
+{firstName}:: Sasha
 
 {group} #::
 
@@ -97,7 +97,7 @@ endif::[]
 - [x] {Enseignants}
 - [ ] 1
 - [ ] 2
-- [ ] 3
+- [x] 3
 - [ ] 4
 - [ ] Innopolis
 

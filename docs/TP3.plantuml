@@ -1,0 +1,92 @@
+@startuml
+
+class PizzaTestDrive{
+  +void main(String[] args)
+}
+
+PizzaTestDrive ..> Pizza
+PizzaTestDrive ..> PizzeriaFactory
+
+class PizzeriaFactory{
+  ~PizzeriaFactory uniqueInstance
+  -PizzeriaFactory()
+  +PizzeriaFactory getInstance()
+  +Pizzeria create(String name)
+}
+
+PizzeriaFactory ..> Pizzeria
+
+abstract class Pizzeria{
+  +Pizza orderPizza(String type)
+  +Pizzeria(PizzaFactory pizzaFactory)
+  #Pizza createPizza(String type)
+}
+
+Pizzeria ..> Pizza
+Pizzeria --> "1"PizzaFactory
+Pizzeria ^-- PizzeriaBrest
+Pizzeria ^-- PizzeriaStrasbourg
+
+class PizzeriaBrest{
+  +PizzeriaBrest()
+}
+
+class PizzeriaStrasbourg{
+  +PizzeriaStrasbourg()
+}
+
+abstract class PizzaFactory{
+  +Pizza create(String name)
+}
+
+PizzaFactory ..> Pizza
+PizzaFactory ^-- PizzaFactoryBrest
+PizzaFactory ^-- PizzaFactoryStrasbourg
+
+class PizzaFactoryBrest{
+  ~PizzaFactoryBrest uniqueInstance
+  -PizzaFactoryBrest()
+  +PizzaFactoryBrest getInstance()
+  +Pizza create(String name)
+}
+
+class PizzaFactoryStrasbourg{
+  ~PizzaFactoryStrasbourg uniqueInstance
+  -PizzaFactoryStrasbourg()
+  +PizzaFactoryStrasbourg getInstance()
+  +Pizza create(String name)
+}
+
+abstract class Pizza {
+  #String name
+  #String crust
+  #String sauce
+  #ArrayList<String> garnitures
+  +void prepare()
+  +void bake()
+  +void cut()
+  +void wrap()
+  +String getName()
+}
+
+Pizza ^-- PizzaGrecqueStyleStrasbourg
+Pizza ^-- PizzaGrecqueStyleBrest
+Pizza <|-- PizzaPoivronStyleStrasbourg
+Pizza <|-- PizzaPoivronStyleBrest
+Pizza <|-- PizzaFromageStyleBrest
+Pizza <|-- PizzaFromageStyleStrasbourg
+
+class PizzaPoivronStyleStrasbourg{
+  +PizzapoivronStyleStrasbourg()
+}
+
+class PizzaFromageStyleBrest {
+  +PizzaFromageStyleBrest()
+}
+
+class PizzaFromageStyleStrasbourg {
+  +PizzaCheeseStyleStrasbourg()
+  +void cut()
+}
+
+@enduml

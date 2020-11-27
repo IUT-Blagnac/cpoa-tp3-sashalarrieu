@@ -1,26 +1,33 @@
+package pizza;
 /**
  * @author bruel (from O'Reilly Head-First series)
+ * @depend - * - Pizza
  */
-public abstract class Pizza {
+public class PizzaPoivronsStyleStrasbourg extends Pizza {
 
-	public void preparer() {
+	@Override
+	public void prepare() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void cuire() {
+	@Override
+	public void bake() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void couper() {
+	@Override
+	public void cut() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void emballer() {
+	@Override
+	public void wrap() {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

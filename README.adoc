@@ -94,7 +94,7 @@ endif::[]
 {group} #::
 
 [%interactive]
-- [x] {Enseignants}
+- [ ] {Enseignants}
 - [ ] 1
 - [ ] 2
 - [x] 3

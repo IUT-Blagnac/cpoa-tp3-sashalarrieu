@@ -1,0 +1,60 @@
+@startuml
+
+abstract class Pizza {
+  name : String
+  crust : String
+  sauce : String
+  garnitures : ArrayList
+  bake()
+  cut()
+  prepare()
+  wrap()
+}
+
+class PizzaCheeseStyleBrest
+
+class PizzaCheeseStyleStrasbourg {
+  cut()
+}
+
+abstract class PizzaFactory {
+  create(String) : Pizza
+}
+
+class PizzaFactoryBrest {
+  create(String) : Pizza
+}
+
+class PizzaFactoryStrasbourg {
+  create(String) : Pizza
+}
+
+class PizzaTestDrive
+
+abstract class Pizzeria {
+  pizzaFactory : PizzaFactory
+  orderPizza(String) : Pizza
+}
+
+class PizzeriaBrest
+
+class PizzeriaFactory {
+  create(String) : Pizzeria
+}
+
+class PizzeriaStrasbourg
+
+PizzaFactoryBrest --> Pizza : use
+PizzaFactory --> Pizza : use
+PizzaFactory <|-- PizzaFactoryBrest
+PizzaFactory <|-- PizzaFactoryStrasbourg
+PizzaFactoryStrasbourg --> Pizza : use
+Pizza <|-- PizzaCheeseStyleBrest
+Pizza <|-- PizzaCheeseStyleStrasbourg
+PizzeriaFactory --> Pizzeria : use
+Pizzeria --> Pizza : use
+Pizzeria --> "1" PizzaFactory : pizzaFactory
+Pizzeria <|-- PizzeriaBrest
+Pizzeria <|-- PizzeriaStrasbourg
+
+@enduml
